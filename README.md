@@ -2,7 +2,7 @@
 
 Content for Artifical Intelligence/Machine Learning/Deep Learning projects including project descriptions
 
-These project requires Python 3.7.0 and the following Python libraries installed:
+These projects require Python 3.7.0 and the following Python libraries installed:
 
 * NumPy
 * Pandas
