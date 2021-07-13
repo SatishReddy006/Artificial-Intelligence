@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
 
 
 import datetime
@@ -26,7 +25,7 @@ class Block:
         return sha.hexdigest()
 
 
-class LinkedList:
+class BlockChain:
     def __init__(self):
         self.head = None
         self.last = None
@@ -50,16 +49,51 @@ block_zero = Block(get_timestamp(), "Information X", 0)
 block_one = Block(get_timestamp(), "Information Y", block_zero)
 block_two = Block(get_timestamp(), "Information Z", block_one)
 
-# linked list
-linked_list = LinkedList()
-linked_list.append(get_timestamp(), "Information A")
-linked_list.append(get_timestamp(), "Information B")
+# Block chain
+block_chain = BlockChain()
+block_chain.append(get_timestamp(), "Information A")
+block_chain.append(get_timestamp(), "Information B")
 
 # tests
 print("Block Zero data : ", block_zero.data)
 print("Block Zero hash : ", block_zero.hash)
 print("Block Zero timestamp : ", block_zero.timestamp)
 print("Block one's previous block's data : ", block_one.previous_hash.data)
-print("Linked list last data : ", linked_list.last.data)
-print("Linked list last's previous hash data : ", linked_list.last.previous_hash.data)
+print("Block Chain last data : ", block_chain.last.data)
+print("Block Chain last's previous hash data : ", block_chain.last.previous_hash.data)
+
+
+
+#Test case 2
+# blocks
+timeStamp=get_timestamp()
+block_zero = Block(timeStamp, "Information X", 0)
+block_one = Block(timeStamp, "Information Y", block_zero)
+block_two = Block(timeStamp, "Information Z", block_one)
+
+# Block chain
+block_chain = BlockChain()
+block_chain.append(timeStamp, "Information A")
+block_chain.append(timeStamp, "Information B")
+
+# tests
+print("Block Zero data : ", block_zero.data)
+print("Block Zero hash : ", block_zero.hash)
+print("Block Zero timestamp : ", block_zero.timestamp)
+print("Block One timestamp : ", block_one.timestamp)
+print("Block Two timestamp : ", block_two.timestamp)
+print("Block one's previous block's data : ", block_one.previous_hash.data)
+print("Block Chain last data : ", block_chain.last.data)
+print("Block Chain last's previous hash data : ", block_chain.last.previous_hash.data)
+
+
+#Test case 3
+
+# Block chain
+block_chain = BlockChain()
+
+# tests
+print("Block Chain last data : ", block_chain.last)
+print("Block Chain last's previous hash data : ", block_chain.head)
+
 

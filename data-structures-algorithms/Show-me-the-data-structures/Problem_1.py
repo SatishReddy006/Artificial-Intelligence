@@ -32,27 +32,28 @@ class LRU_Cache(object):
         
 
     def set(self, key, val):
-        # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
-        node = self.nodes.get(key)
+        # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
+        if self.n != None and self.n>0:
+            node = self.nodes.get(key)
+            
+            if node:
+                # Update existing node and move to front
+                node.val = val
+                self.move_to_front(node)
+                return
         
-        if node:
-            # Update existing node and move to front
-            node.val = val
-            self.move_to_front(node)
-            return
+            if self.count == self.n:
+                # No space, so remove last item
+                if self.end:
+                    del self.nodes[self.end.key]
+                    self.remove(self.end)
+            else:
+                self.count += 1
         
-        if self.count == self.n:
-            # No space, so remove last item
-            if self.end:
-                del self.nodes[self.end.key]
-                self.remove(self.end)
-        else:
-            self.count += 1
-        
-        # Finally create and insert the new node
-        node = Node(key, val)
-        self.insert(node)
-        self.nodes[key] = node
+            # Finally create and insert the new node
+            node = Node(key, val)
+            self.insert(node)
+            self.nodes[key] = node
     
     def insert(self, node):
         if not self.end:
@@ -113,3 +114,16 @@ our_cache.set(6, 6)
 
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
+
+our_cache = LRU_Cache(-1)
+our_cache.set(1, 1);
+print(our_cache.get(1))       # returns -1
+
+
+our_cache = LRU_Cache(-10)
+our_cache.set(1, 1);
+print(our_cache.get(1))       # returns -1
+
+our_cache = LRU_Cache(None)
+our_cache.set(1, 1);
+print(our_cache.get(1))       # returns -1

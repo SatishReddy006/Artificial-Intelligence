@@ -1,0 +1,32 @@
+Run time analysis:
+This file explains the run time analysis (Worst Case Big O Notation) for each solution.
+
+Task0:
+Exceution take O(1) time to access list.
+Time Complexcity is  1
+Space Complexcity is 1
+
+Task1:
+Execution takes O(n) to get all phone numbers and O(n) to find unique numbers. So time complexcity is O(n).
+Time Complexcity is O(n)
+
+Task2:
+Execution takes O(n) to iterate through all calls to find out longest spent on call.
+Time Complexcity is  O(n)
+Space Complexcity is 1
+
+Task3
+PartA:
+Execution takes O(n) to iterate calls and O(nlogn) to sort.
+Time Complexcity is  O(nlogn)
+Space Complexcity is O(n)
+
+PartB:
+Execution takes O(n) to iterate calls.
+Time Complexcity is  O(n)
+Space Complexcity is O(n)
+
+Task4:
+Execution takes O(n^2) to iterate calls and texts, O(nlogn) to sort.
+Time Complexcity is  O(n^2)
+Space Complexcity is O(n)

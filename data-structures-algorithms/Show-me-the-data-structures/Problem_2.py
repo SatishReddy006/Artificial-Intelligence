@@ -53,3 +53,6 @@ print(find_files('.c', 'testdir/subdir3'))   #return ['testdir/subdir3/subsubdir
 # Let us print the files in the directory in which you are running this script
 print(find_files(None, None))       #return []
 
+print(find_files('.c', None))       #return []
+print(find_files('.c', ''))       #return []
+
